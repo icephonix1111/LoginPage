@@ -1,0 +1,224 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+:root{
+	--background-color: #ecf0f1;
+	--underline-color: #2980b9;
+	--valid-color: #27ae60;
+	--writing-color: #2980b9;
+	--heading-font: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	--text-font: 'Roboto', sans-serif;
+}
+
+html, body{
+	display: grid;
+	height: 100vh;
+	width: 100%;
+	place-items: center;
+	background: var(--background-color);
+}
+
+.container{
+	background: #fff;
+	max-width:  350px;
+	width: 100%;
+	padding: 25px 30px;
+	border-radius: 5px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+}
+
+.container form .title{
+	font-size: 30px;
+	font-weight: 20px 0 10px 0;
+	position: relative;
+	font-family: var(--heading-font) !important;
+}
+
+.container form .title::before{
+	content: '';
+	position: absolute;
+	height: 4px;
+	width: 33px;
+	bottom: 0;
+	left: 0;
+	border-radius: 5px;
+	background: var(--underline-color);
+}
+
+.container form .input-box{
+	width: 100%;
+	height: 45px;
+	margin-top: 25px;
+	position: relative;
+	font-family: var(--text-font);
+}
+
+.container form .input-box input{
+	height: 100%;
+	width: 100%;
+	outline: none;
+	font-size: 16px;
+	border: none;
+}
+
+.container form .underline::before{
+	position: absolute;
+	content: '';
+	height: 2px;
+	width: 100%;
+	background: #ccc;
+	bottom: 0;
+	left: 0;
+}
+
+.container form .underline::after{
+	position: absolute;
+	content: '';
+	height: 2px;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	transform: scale(0);
+	transform-origin: left;
+	transform-style: inherit;
+	transition: all 0.3s ease-in;
+}
+
+.container form .input-box input:focus ~ .underline:after{
+	transform: scale(1);
+	background: var(--writing-color);
+}
+
+.container form .input-box input:valid ~ .underline:after{
+	transform: scale(1);
+	background: var(--valid-color);
+}
+
+.container form .input-button{
+	margin: 40px 0 20px 0;
+}
+
+.container form .input-button button{
+	font-size: 17px;
+	color: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+	background: var(--valid-color);
+	transition: all 0.3s ease-in;
+	border: none;
+	padding: 10px 0;
+	text-align: center;
+	width: 100%;
+	font-weight: bold;
+	font-family: var(--heading-font);
+}
+
+.container form .input-button button:hover{
+	box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.text{
+	display: block;
+}
+
+button.clicked .text{
+	display: none;
+}
+
+.circle{
+	display: none;
+}
+
+button.clicked .circle {
+  display: inline-block;
+  background-color: var(--background-color);
+  height: 15px;
+  width: 15px;
+  border-radius: 25px;
+}
+
+#container {
+  height: 200px;
+  margin-top: 50px;
+}
+
+#ball-1{
+  -webkit-animation-name: bounce;
+  -webkit-animation-delay: 1s;
+  -webkit-animation-duration: 1.2s;
+  -webkit-animation-iteration-count: infinite;
+}
+#ball-2{
+  -webkit-animation-name: bounce;
+  -webkit-animation-delay: 1.1s;
+  -webkit-animation-duration: 1.2s;
+  -webkit-animation-iteration-count: infinite;
+}
+#ball-3{
+  -webkit-animation-name: bounce;
+  -webkit-animation-delay: 1.2s;
+  -webkit-animation-duration: 1.2s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(5px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+  80%{
+    transform: translateY(0);
+  }
+}
+
+.container .option{
+	font-size: 14px;
+	text-align: center;
+	padding: 10px;
+	font-family: var(--text-font);
+}
+
+.container .google,{
+	padding-top: 20px;
+}
+
+.container .google a,
+.container .facebook a{
+	display: block;
+	font-family: var(--heading-font);
+	width: 100%;
+	height: 45px;
+	font-size: 15px;
+	text-decoration: none;
+	padding-left: 20px;
+	color: #000;
+	border-radius: 5px;
+	line-height: 5px;
+	transition: all 0.3s ease-in;
+	font-weight: bold;
+}
+
+.container .google i,
+.container .facebook i{
+	padding-right: 12px;
+	font-size: 20px;
+	padding-right: 20px;
+}
+
+.container .google a:hover{
+	color: var(--valid-color);
+	text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.container .facebook a:hover{
+	color: var(--writing-color);
+	text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+}
